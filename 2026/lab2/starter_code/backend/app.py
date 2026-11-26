@@ -169,7 +169,15 @@ def create_app(ontology_path: str | Path | None = None, store_path: str | Path |
         # return the new pizza as JSON with status 201 (Created). post_topping() below is
         # an example. Errors raised by the knowledge base (InvalidInput, Conflict, ...) are
         # turned into JSON error responses by handle_kb_error() above.
-        raise NotImplementedError("Task 8: POST /api/pizzas")
+        data = json_body()
+        pizza = kb.add_pizza(
+            name=data.get("name"),
+            type=data.get("type"),
+            calories=data.get("calories"),
+            base=data.get("base") or None,
+            label=data.get("label") or None,
+        )
+        return jsonify(pizza), 201
 
     @app.post("/api/toppings")
     def post_topping():

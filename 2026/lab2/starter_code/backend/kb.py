@@ -518,7 +518,41 @@ class KnowledgeBase:
         Put the new triples in a fresh Graph() and pass it to self._commit(),
         which adds them to the knowledge base and saves them to disk.
         """
-        raise NotImplementedError("Task 5: KnowledgeBase.add_pizza()")
+        pizza_iri = self._check_new_name(name, "pizza")
+        type_iri = self._check_class(type, "NamedPizza", "pizza type")
+
+        if isinstance(calories, bool) or calories is None:
+            raise InvalidInput("Calories must be a whole number >= 0.")
+        if isinstance(calories, int):
+            cal_int = calories
+        elif isinstance(calories, str) and calories.strip().isdigit():
+            cal_int = int(calories.strip())
+        else:
+            raise InvalidInput("Calories must be a whole number >= 0.")
+        if cal_int < 0:
+            raise InvalidInput("Calories must be a whole number >= 0.")
+
+        base_cls_iri = None
+        base_ind_iri = None
+        if base is not None and base != "":
+            base_cls_iri = self._check_class(base, "PizzaBase", "pizza base")
+            base_ind_iri = self._check_new_name(f"{name}Base", "pizza base individual")
+
+        lbl = label.strip() if isinstance(label, str) and label.strip() else split_camel(name)
+
+        new = Graph()
+        new.add((pizza_iri, RDF.type, OWL.NamedIndividual))
+        new.add((pizza_iri, RDF.type, type_iri))
+        new.add((pizza_iri, RDFS.label, Literal(lbl)))
+        new.add((pizza_iri, self.iri("hasCaloricContent"), Literal(cal_int, datatype=XSD.integer)))
+
+        if base_cls_iri is not None and base_ind_iri is not None:
+            new.add((pizza_iri, self.iri("hasBase"), base_ind_iri))
+            new.add((base_ind_iri, RDF.type, OWL.NamedIndividual))
+            new.add((base_ind_iri, RDF.type, base_cls_iri))
+
+        self._commit(new)
+        return self.pizza(name)
 
     def add_topping(self, name, parent, spiciness=None, label=None) -> dict:
         """TODO (Task 6): add a topping class and return its entry from self.toppings().
