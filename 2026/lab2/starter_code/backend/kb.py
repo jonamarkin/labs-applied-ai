@@ -446,7 +446,52 @@ class KnowledgeBase:
         Raise NotFound if `name` is not a pizza individual.
         The base of a pizza is an individual (see add_pizza); report the class of that individual.
         """
-        raise NotImplementedError("Task 4: KnowledgeBase.pizza()")
+        pizza_iri = self.iri(name)
+        rows = list(self.query("""
+            SELECT DISTINCT ?type ?calories ?baseClass ?topping ?category WHERE {
+                ?pizza a ?type .
+                ?type rdfs:subClassOf+ pizza:NamedPizza .
+                OPTIONAL { ?pizza pizza:hasCaloricContent ?calories }
+                OPTIONAL {
+                    ?pizza pizza:hasBase ?baseInd .
+                    ?baseInd a ?baseClass .
+                    ?baseClass rdfs:subClassOf+ pizza:PizzaBase .
+                }
+                OPTIONAL {
+                    ?type rdfs:subClassOf ?r .
+                    ?r owl:onProperty pizza:hasTopping ;
+                       owl:someValuesFrom ?topping .
+                    ?topping rdfs:subClassOf* ?category .
+                    ?category rdfs:subClassOf pizza:PizzaTopping .
+                }
+            }
+        """, pizza=pizza_iri))
+
+        if not rows:
+            raise NotFound(f"No pizza individual called {name!r}.")
+
+        first = rows[0]
+        toppings_by_name: dict[str, dict] = {}
+        for r in rows:
+            if r.topping is not None:
+                t_name = self.local(r.topping)
+                toppings_by_name[t_name] = {
+                    "name": t_name,
+                    "label": self.label(r.topping),
+                    "category": self.local(r.category),
+                }
+
+        return {
+            "name": name,
+            "label": self.label(pizza_iri),
+            "type": self.local(first.type),
+            "typeLabel": self.label(first.type),
+            "calories": to_python(first.calories) if first.calories is not None else None,
+            "base": self.local(first.baseClass) if first.baseClass is not None else None,
+            "baseLabel": self.label(first.baseClass) if first.baseClass is not None else None,
+            "toppings": sorted(toppings_by_name.values(), key=lambda t: t["name"]),
+            "addedByUser": (pizza_iri, None, None) in self.added,
+        }
 
     # ------------------------------------------------------------------ #
     # Part B: storing knowledge
