@@ -195,7 +195,18 @@ def create_app(ontology_path: str | Path | None = None, store_path: str | Path |
         # TODO (Task 8): like post_pizza(), but for kb.add_pizza_type(). The body is
         # {"name": ..., "toppings": [...], "closed": true/false, "comment": ...};
         # "closed" defaults to true.
-        raise NotImplementedError("Task 8: POST /api/pizza-types")
+        data = json_body()
+        closed_val = data.get("closed", True)
+        if not isinstance(closed_val, bool):
+            closed_val = bool(closed_val)
+        pizza_type = kb.add_pizza_type(
+            name=data.get("name"),
+            toppings=data.get("toppings"),
+            closed=closed_val,
+            comment=data.get("comment") or None,
+            label=data.get("label") or None,
+        )
+        return jsonify(pizza_type), 201
 
     @app.delete("/api/pizzas/<name>")
     def delete_pizza(name: str):

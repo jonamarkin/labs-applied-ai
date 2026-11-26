@@ -622,7 +622,44 @@ class KnowledgeBase:
         and every element is a class below pizza:PizzaTopping.
         Hint: Collection(graph, BNode(), [a, b, c]) builds the RDF list ( a b c ) in graph.
         """
-        raise NotImplementedError("Task 7: KnowledgeBase.add_pizza_type()")
+        type_iri = self._check_new_name(name, "pizza type")
+
+        if not isinstance(toppings, list) or len(toppings) == 0:
+            raise InvalidInput("Toppings must be a non-empty list.")
+        if len(set(toppings)) != len(toppings):
+            raise InvalidInput("Toppings list must not contain duplicates.")
+
+        topping_iris = [self._check_class(t, "PizzaTopping", "topping") for t in toppings]
+        lbl = label.strip() if isinstance(label, str) and label.strip() else split_camel(name)
+
+        new = Graph()
+        new.add((type_iri, RDF.type, OWL.Class))
+        new.add((type_iri, RDFS.label, Literal(lbl)))
+        if isinstance(comment, str) and comment.strip():
+            new.add((type_iri, RDFS.comment, Literal(comment.strip())))
+        new.add((type_iri, RDFS.subClassOf, self.iri("NamedPizza")))
+
+        for t_iri in topping_iris:
+            r = BNode()
+            new.add((type_iri, RDFS.subClassOf, r))
+            new.add((r, RDF.type, OWL.Restriction))
+            new.add((r, OWL.onProperty, self.iri("hasTopping")))
+            new.add((r, OWL.someValuesFrom, t_iri))
+
+        if closed:
+            closure_r = BNode()
+            union_cls = BNode()
+            union_list = BNode()
+            Collection(new, union_list, topping_iris)
+            new.add((union_cls, RDF.type, OWL.Class))
+            new.add((union_cls, OWL.unionOf, union_list))
+            new.add((closure_r, RDF.type, OWL.Restriction))
+            new.add((closure_r, OWL.onProperty, self.iri("hasTopping")))
+            new.add((closure_r, OWL.allValuesFrom, union_cls))
+            new.add((type_iri, RDFS.subClassOf, closure_r))
+
+        self._commit(new)
+        return next(pt for pt in self.pizza_types() if pt["name"] == name)
 
     def delete_pizza(self, name: str) -> None:
         """TODO (Task 10, optional): delete a pizza that was added through the API.
