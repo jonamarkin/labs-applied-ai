@@ -212,7 +212,8 @@ def create_app(ontology_path: str | Path | None = None, store_path: str | Path |
     def delete_pizza(name: str):
         # TODO (Task 10, optional): call kb.delete_pizza(name) and return an empty
         # response with status 204 (No Content).
-        raise NotImplementedError("Task 10 (optional): DELETE /api/pizzas/<name>")
+        kb.delete_pizza(name)
+        return "", 204
 
     return app
 

@@ -669,7 +669,19 @@ class KnowledgeBase:
         * Remove every triple with the pizza as subject or object from both self.graph and
           self.added, and do the same for its base individual. Then call self.save().
         """
-        raise NotImplementedError("Task 10 (optional): KnowledgeBase.delete_pizza()")
+        # Verify it is a valid pizza individual (raises NotFound if not)
+        self.pizza(name)
+        pizza_iri = self.iri(name)
+        if (pizza_iri, None, None) not in self.added:
+            raise Forbidden(f"Cannot delete {name!r}: it is part of the original ontology.")
+
+        with self.lock:
+            base_individuals = list(self.graph.objects(pizza_iri, self.iri("hasBase")))
+            for target in [pizza_iri, *base_individuals]:
+                for g in (self.graph, self.added):
+                    g.remove((target, None, None))
+                    g.remove((None, None, target))
+            self.save()
 
     # ------------------------------------------------------------------ #
     # Generic access (given): used by the SPARQL console and, in Lab 4,

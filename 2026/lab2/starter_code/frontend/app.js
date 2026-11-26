@@ -139,7 +139,23 @@ async function showPizza(name) {
     // panel.replaceChildren(...). For now the raw JSON is shown.
     // TODO (Task 10, optional): if pizza.addedByUser is true, also add a Delete button
     // that calls deletePizza(pizza.name).
-    panel.replaceChildren(el("pre", { className: "mono" }, JSON.stringify(pizza, null, 2)));
+    panel.replaceChildren(
+      el("h2", {}, pizza.label, pizza.addedByUser ? [" ", chip("Added by user", "user")] : null),
+      el("dl", {},
+        el("dt", {}, "Name"), el("dd", { className: "mono" }, pizza.name),
+        el("dt", {}, "Type"), el("dd", {}, pizza.typeLabel),
+        el("dt", {}, "Calories"), el("dd", {}, pizza.calories !== null ? `${pizza.calories} kcal` : "Unknown"),
+        el("dt", {}, "Base"), el("dd", {}, pizza.baseLabel ?? "None"),
+      ),
+      el("h3", {}, "Toppings"),
+      pizza.toppings.length
+        ? el("div", { className: "chips" }, pizza.toppings.map(t => chip(t.label)))
+        : el("p", { className: "muted" }, "None"),
+      pizza.addedByUser
+        ? el("div", { className: "actions" },
+            el("button", { type: "button", className: "secondary small", onClick: () => deletePizza(pizza.name) }, "Delete pizza"))
+        : null,
+    );
   } catch (error) {
     panel.replaceChildren(el("p", { className: "muted" }, error.message));
   }
@@ -218,7 +234,13 @@ document.getElementById("add-pizza-form").addEventListener("submit", event =>
     // TODO (Task 9b): return the JSON body for POST /api/pizzas built from the form
     // fields name, type, calories and base. The add-topping form below is an example.
     // Remember that calories must be sent as a number and an empty base as null.
-    throw new Error("Task 9b: the add-pizza form is not implemented yet");
+    const data = formData(form);
+    return {
+      name: data.name.trim(),
+      type: data.type,
+      calories: Number(data.calories),
+      base: data.base || null,
+    };
   }, pizza => `Added pizza ${pizza.label} (${pizza.typeLabel}, ${pizza.calories} kcal).`));
 
 document.getElementById("add-topping-form").addEventListener("submit", event =>
@@ -232,7 +254,14 @@ document.getElementById("add-type-form").addEventListener("submit", event =>
     // TODO (Task 9c): return the JSON body for POST /api/pizza-types:
     //   {name, comment, toppings: [names of the checked boxes], closed: true/false}
     // Hint: form.querySelectorAll("[name=toppings]:checked") and form.elements.closed.checked
-    throw new Error("Task 9c: the add-pizza-type form is not implemented yet");
+    const data = formData(form);
+    const toppings = Array.from(form.querySelectorAll("[name=toppings]:checked"), cb => cb.value);
+    return {
+      name: data.name.trim(),
+      comment: data.comment.trim() || null,
+      toppings,
+      closed: form.elements.closed.checked,
+    };
   }, type => `Added pizza type ${type.label} with ${type.toppings.length} topping(s).`));
 
 // --------------------------------------------------------------------------
