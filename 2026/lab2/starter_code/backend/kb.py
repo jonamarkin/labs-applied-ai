@@ -568,7 +568,36 @@ class KnowledgeBase:
         spiciness (optional) is one of self.spiciness_levels().
         A restriction is a blank node: BNode().
         """
-        raise NotImplementedError("Task 6: KnowledgeBase.add_topping()")
+        topping_iri = self._check_new_name(name, "topping")
+        if not isinstance(parent, str) or not NAME_RE.match(parent):
+            raise InvalidInput(f"Invalid parent class: {parent!r}.")
+        parent_iri = self.iri(parent)
+        if not self.is_subclass_of(parent_iri, self.iri("PizzaTopping"), strict=False):
+            raise InvalidInput(f"Unknown topping parent {parent!r}: it is not PizzaTopping or a subclass of it.")
+
+        spiciness_iri = None
+        if spiciness is not None and spiciness != "":
+            valid_levels = {s["name"] for s in self.spiciness_levels()}
+            if not isinstance(spiciness, str) or spiciness not in valid_levels:
+                raise InvalidInput(f"Invalid spiciness {spiciness!r}.")
+            spiciness_iri = self.iri(spiciness)
+
+        lbl = label.strip() if isinstance(label, str) and label.strip() else split_camel(name)
+
+        new = Graph()
+        new.add((topping_iri, RDF.type, OWL.Class))
+        new.add((topping_iri, RDFS.label, Literal(lbl)))
+        new.add((topping_iri, RDFS.subClassOf, parent_iri))
+
+        if spiciness_iri is not None:
+            restriction = BNode()
+            new.add((topping_iri, RDFS.subClassOf, restriction))
+            new.add((restriction, RDF.type, OWL.Restriction))
+            new.add((restriction, OWL.onProperty, self.iri("hasSpiciness")))
+            new.add((restriction, OWL.hasValue, spiciness_iri))
+
+        self._commit(new)
+        return next(t for t in self.toppings() if t["name"] == name)
 
     def add_pizza_type(self, name, toppings, closed=True, comment=None, label=None) -> dict:
         """TODO (Task 7): add a named pizza type and return its entry from self.pizza_types().
