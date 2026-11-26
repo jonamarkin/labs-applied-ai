@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:pizza="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CaperTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MushroomTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1e2a3e87d0924a3e9ae421a4a092cf28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isBaseOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isIngredientOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N58864a37d6d14d209b699d654ff33638">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasBase"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#NamedPizza"/>
+    <rdfs:subClassOf rdf:nodeID="Nd5b661ff392f42bda8a6acee063852dc"/>
+    <rdfs:subClassOf rdf:nodeID="N4daed50a91094ea790e02420c23a7626"/>
+    <rdfs:subClassOf rdf:nodeID="N9796f9e978fc4bf2bad54349ba56be7b"/>
+    <rdfs:comment>A pizza that has Mozzarella, Tomato, and Pepperoni toppings</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+    <rdfs:subClassOf rdf:nodeID="N58864a37d6d14d209b699d654ff33638"/>
+    <rdfs:subClassOf rdf:nodeID="N5e3d213128154e0b9663fedc1b1f90c6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3de976abe6594fee89d4b2e1a56f361d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nfe16acb6c8b14b239bcb5c7a277baa67"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#NamedPizza"/>
+    <rdfs:subClassOf rdf:nodeID="N2fee5b2ee45b41f6b43b19dc2e9a041f"/>
+    <rdfs:subClassOf rdf:nodeID="N097b1f69dd2d47cb972534d1e722c935"/>
+    <rdfs:subClassOf rdf:nodeID="Nb58a37bdff424eb49c2385381f6acda8"/>
+    <rdfs:subClassOf rdf:nodeID="N90916dcb0bee455397b78c5c0116b702"/>
+    <rdfs:comment>A pizza that has Mozzarella, Tomato, Pepperoni, and Jalapeno Pepper toppings</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd5b661ff392f42bda8a6acee063852dc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4ae2e07b8dc7465fac5fb5d8df3ea93d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MushroomTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CaperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#NamedPizza"/>
+    <rdfs:subClassOf rdf:nodeID="Nd88c8f83364a4e7695dc8e8048f82581"/>
+    <rdfs:subClassOf rdf:nodeID="N1cd0144340084b2cbe3b9807abca95b5"/>
+    <rdfs:subClassOf rdf:nodeID="N1e2a3e87d0924a3e9ae421a4a092cf28"/>
+    <rdfs:subClassOf rdf:nodeID="Nce78aeba864e46b795505b19bbccf211"/>
+    <rdfs:subClassOf rdf:nodeID="Nf2f3cdf787f94a279c0319415e7a1cb5"/>
+    <rdfs:comment>A pizza that has Mozzarella, Olives, Parmesan, and Tomato toppings</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SpicyPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="N78c4f1108fa945b5baac9f3324117e48"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CaperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MushroomTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82dc0442e989485d979b591ad062a6c3">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N12c34c261e19441eb973c340c5cc7cca">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Hot"/>
+    <rdf:rest rdf:nodeID="N51b19ad26ee4483daea803c18241fdc9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">410</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6f4bd39a6e2f40efa99fb2ff338c8003">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Medium"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N90916dcb0bee455397b78c5c0116b702">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#JalapenoPepperTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetarianPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="N364e33adecee44e5b03667719dd328eb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasBase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasIngredient"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isBaseOf"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb58a37bdff424eb49c2385381f6acda8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">350</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#NamedPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nce78aeba864e46b795505b19bbccf211">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ParmesanTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45cb802b743243d7b3618bd8fc08aae5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Hot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Hot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+    <pizza:isSpicierThan rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Medium"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na4f73743e82d4e75b903e95e50833f12">
+    <rdf:first rdf:nodeID="N53086058b51445e7a6b3000ff7a77ffb"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SpicyBeefTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <rdfs:subClassOf rdf:nodeID="Nd69bb76f561a445cba1455241f60a3a7"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#HamTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SalamiTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">263</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne1bf87d600004530a2537a35952f9797">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+    <rdf:rest rdf:nodeID="N4ae2e07b8dc7465fac5fb5d8df3ea93d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf57bbff97f5f47d7a9130e811284c961">
+    <rdf:first rdf:nodeID="N48651c8cad8e4f6c8aa05b7fd222fb62"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">680</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">540</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Medium">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+    <pizza:isSpicierThan rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Mild"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#GreenPepperTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <rdfs:subClassOf rdf:nodeID="Nd0db0b767c734e0db242490e0f693517"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#JalapenoPepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#RedPepperTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N304d980207a74568bf5b53cb79b3abd1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SalamiTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <rdfs:subClassOf rdf:nodeID="N6f4bd39a6e2f40efa99fb2ff338c8003"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#HamTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SpicyBeefTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd69bb76f561a445cba1455241f60a3a7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Hot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf81a88a0e95c452b950ce3e266f702db">
+    <rdf:first rdf:nodeID="N304d980207a74568bf5b53cb79b3abd1"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ParmesanTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasIngredient"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isToppingOf"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ThinAndCrispyBase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#DeepPanBase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc3a5e6a78e57464f9b893fef96476ff4">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="N689cfaf1df2641aeb1a7d061905ff9fb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CaperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MushroomTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a49878cf87747ea9bec4af599fd3cd9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:nodeID="N45cb802b743243d7b3618bd8fc08aae5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <rdfs:subClassOf rdf:nodeID="N3ed5f5f3f82440c686f1c9b8f3e7cd0b"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#HamTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SalamiTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SpicyBeefTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#InterestingPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="Nf796d66c9317413fa6fd13a27de20768"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AnchovyTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PrawnTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TunaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ParmesanTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9796f9e978fc4bf2bad54349ba56be7b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc4f4af7196c7451a8ceab071946fcf36">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasCaloricContent"/>
+    <owl:someValuesFrom rdf:nodeID="N3569f46289334bfeb62fa182bcd6cc11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N782516b511e54c6886b64fca76e24720">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping"/>
+    <rdf:rest rdf:nodeID="N16ca425591784f79be5f784994415878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+    <owl:equivalentClass rdf:nodeID="Nf88eb1c82601436bb4027f34482f674e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naa8b5d4bcb524b2e9b67ac528d555e2b">
+    <rdf:first rdf:nodeID="N8be5faf5248d4ab5adedfa6fdc9e6079"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee81b06f80aa45969366ddbc4ef0ef93">
+    <rdf:first rdf:nodeID="Nc4f4af7196c7451a8ceab071946fcf36"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TunaTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AnchovyTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PrawnTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3569f46289334bfeb62fa182bcd6cc11">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Naa8b5d4bcb524b2e9b67ac528d555e2b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#RedPepperTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <rdfs:subClassOf rdf:nodeID="N9f172f7b131d41b69ec263dd18c21c1f"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#GreenPepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#JalapenoPepperTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasIngredient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isIngredientOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isToppingOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isIngredientOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#JalapenoPepperTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <rdfs:subClassOf rdf:nodeID="N7ac8156e3e1b439991ae407b21e9415a"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#GreenPepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#RedPepperTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N51b19ad26ee4483daea803c18241fdc9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Medium"/>
+    <rdf:rest rdf:nodeID="N70c7cd54deda4ae2b1c2dfb4a1f4a18f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8071adbc708d41938f71bf17b7f03fb9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="Nee81b06f80aa45969366ddbc4ef0ef93"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee0a75a64dc94c579202cfbd9fa30726">
+    <rdf:first rdf:nodeID="N45064e12490b417bafc05c851fb98ddc"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3bc181e85b8e4eac958f644cf4963771">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment>A tutorial ontology for the Pizza domain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#HighCaloriePizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="Nb7fc14790dd54ac9910636e75ff2b6ec"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5c3476966fda409e863fcdf7cadfe3fe">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Nee0a75a64dc94c579202cfbd9fa30726"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N097b1f69dd2d47cb972534d1e722c935">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#NamedPizza"/>
+    <rdfs:subClassOf rdf:nodeID="N21091803a46c449683c29f0049d7f10e"/>
+    <rdfs:subClassOf rdf:nodeID="N3bc181e85b8e4eac958f644cf4963771"/>
+    <rdfs:subClassOf rdf:nodeID="N12cd5253483446d3a8f2039c95b28c36"/>
+    <rdfs:comment>A pizza that only has Mozzarella and Tomato toppings</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaHotPizza"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SohoPizza"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9f172f7b131d41b69ec263dd18c21c1f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Mild"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#LowCaloriePizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="N8e32a2f2d6d3406ba70160fcd89d9b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheesyPizza">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <owl:equivalentClass rdf:nodeID="N8dff44eceadc4678a229eb1d6270a152"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N255962e12f2a448c8b5338b459be168a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="N663e85ac100c435cafb43d3b08d80fe8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#OliveTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CaperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MushroomTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7ac8156e3e1b439991ae407b21e9415a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Hot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N364e33adecee44e5b03667719dd328eb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N6fd15ce92b7742b3b941832a72a7c159"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5e3d213128154e0b9663fedc1b1f90c6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasCaloricContent"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4a3fdf464ec0499bbddd4dd332b745e5">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="Na4f73743e82d4e75b903e95e50833f12"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#HamTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PepperoniTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SalamiTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SpicyBeefTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasCaloricContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N61b0af66d9f948f7833c39756c67c0d0">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+    <rdf:rest rdf:nodeID="N82dc0442e989485d979b591ad062a6c3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8dff44eceadc4678a229eb1d6270a152">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N4a3fdf464ec0499bbddd4dd332b745e5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3ed5f5f3f82440c686f1c9b8f3e7cd0b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Medium"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N48651c8cad8e4f6c8aa05b7fd222fb62">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:allValuesFrom rdf:nodeID="N1fcd7f338ef74373a2c3edf44c253c60"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N663e85ac100c435cafb43d3b08d80fe8">
+    <rdf:first rdf:nodeID="N6a49878cf87747ea9bec4af599fd3cd9"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf796d66c9317413fa6fd13a27de20768">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N338640c74a274ec99307b198df97339a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AmericanaPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">723</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1cd0144340084b2cbe3b9807abca95b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#DeepPanBase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaBase"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ThinAndCrispyBase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N12cd5253483446d3a8f2039c95b28c36">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:allValuesFrom rdf:nodeID="N4b992b5a34d14129bffc83912df14a4f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N16ca425591784f79be5f784994415878">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#ParmesanTopping"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb7fc14790dd54ac9910636e75ff2b6ec">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nc3a5e6a78e57464f9b893fef96476ff4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd0db0b767c734e0db242490e0f693517">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasSpiciness"/>
+    <owl:hasValue rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Mild"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2fee5b2ee45b41f6b43b19dc2e9a041f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PizzaTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MeatTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#VegetableTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#PrawnTopping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#SeafoodTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#AnchovyTopping"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TunaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4daed50a91094ea790e02420c23a7626">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MargheritaPizza"/>
+    <pizza:hasCaloricContent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">320</pizza:hasCaloricContent>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd88c8f83364a4e7695dc8e8048f82581">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N21091803a46c449683c29f0049d7f10e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N53086058b51445e7a6b3000ff7a77ffb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#CheeseTopping"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf2f3cdf787f94a279c0319415e7a1cb5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasTopping"/>
+    <owl:allValuesFrom rdf:nodeID="N3de976abe6594fee89d4b2e1a56f361d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1fcd7f338ef74373a2c3edf44c253c60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N61b0af66d9f948f7833c39756c67c0d0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isMilderThan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Mild">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isIngredientOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b992b5a34d14129bffc83912df14a4f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ne1bf87d600004530a2537a35952f9797"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf88eb1c82601436bb4027f34482f674e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:oneOf rdf:nodeID="N12c34c261e19441eb973c340c5cc7cca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isSpicierThan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#isMilderThan"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Spiciness"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45064e12490b417bafc05c851fb98ddc">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6fd15ce92b7742b3b941832a72a7c159">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="Nf57bbff97f5f47d7a9130e811284c961"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N338640c74a274ec99307b198df97339a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Pizza"/>
+    <rdf:rest rdf:nodeID="Nf81a88a0e95c452b950ce3e266f702db"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N78c4f1108fa945b5baac9f3324117e48">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N255962e12f2a448c8b5338b459be168a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8be5faf5248d4ab5adedfa6fdc9e6079">
+    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</xsd:maxExclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N70c7cd54deda4ae2b1c2dfb4a1f4a18f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#Mild"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N161e221239b64fd6a1b55451b9bbe84a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#hasCaloricContent"/>
+    <owl:someValuesFrom rdf:nodeID="N5c3476966fda409e863fcdf7cadfe3fe"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfe16acb6c8b14b239bcb5c7a277baa67">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#MozzarellaTopping"/>
+    <rdf:rest rdf:nodeID="Nb7c11f9a69b44b27ae4294bad89b285f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e32a2f2d6d3406ba70160fcd89d9b13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N8071adbc708d41938f71bf17b7f03fb9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb7c11f9a69b44b27ae4294bad89b285f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ojaami/ontologies/2026/10/PizzaTutorial#TomatoTopping"/>
+    <rdf:rest rdf:nodeID="N782516b511e54c6886b64fca76e24720"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N689cfaf1df2641aeb1a7d061905ff9fb">
+    <rdf:first rdf:nodeID="N161e221239b64fd6a1b55451b9bbe84a"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>
