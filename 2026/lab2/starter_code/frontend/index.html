@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pizza Knowledge Base</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Pizza Knowledge Base</h1>
+      <p class="subtitle">Store and retrieve knowledge in the pizza ontology</p>
+    </div>
+    <div class="header-right">
+      <span id="stats" class="muted"></span>
+      <a class="button secondary" href="/api/export" download>Export RDF</a>
+    </div>
+  </header>
+
+  <nav id="tabs">
+    <button data-tab="pizzas" class="active">Pizzas</button>
+    <button data-tab="menu">Menu</button>
+    <button data-tab="toppings">Toppings</button>
+    <button data-tab="add">Add knowledge</button>
+    <button data-tab="sparql">SPARQL</button>
+  </nav>
+
+  <main>
+    <!-- ============================ Pizzas ============================ -->
+    <section id="tab-pizzas" class="tab active">
+      <form id="filter-form" class="card filters">
+        <label>Topping or category
+          <select name="topping"><option value="">Any</option></select>
+        </label>
+        <label>Min kcal <input name="minCalories" type="number" min="0" step="1"></label>
+        <label>Max kcal <input name="maxCalories" type="number" min="0" step="1"></label>
+        <label class="checkbox"><input name="vegetarian" type="checkbox"> Vegetarian</label>
+        <div class="actions">
+          <button type="submit">Search</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+      </form>
+
+      <div class="split">
+        <div class="card">
+          <table id="pizza-table">
+            <thead><tr><th>Pizza</th><th>Type</th><th class="num">kcal</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p id="pizza-count" class="muted"></p>
+        </div>
+        <div id="pizza-details" class="card details">
+          <p class="muted">Select a pizza to see what the knowledge base knows about it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= Menu ============================= -->
+    <section id="tab-menu" class="tab">
+      <p class="muted">Named pizza types and the toppings they must have
+        (read from the OWL restrictions of each class).</p>
+      <div id="menu" class="grid"></div>
+    </section>
+
+    <!-- =========================== Toppings =========================== -->
+    <section id="tab-toppings" class="tab">
+      <p class="muted">The topping class hierarchy below <code>PizzaTopping</code>.</p>
+      <div id="topping-tree" class="grid"></div>
+    </section>
+
+    <!-- ======================== Add knowledge ========================= -->
+    <section id="tab-add" class="tab">
+      <div class="grid forms">
+        <form id="add-pizza-form" class="card">
+          <h2>Add a pizza</h2>
+          <p class="muted">A new individual of an existing pizza type.</p>
+          <label>Name <input name="name" required placeholder="MargheritaPizza3" pattern="[A-Z][A-Za-z0-9_]*"></label>
+          <label>Type <select name="type" required></select></label>
+          <label>Calories (kcal) <input name="calories" type="number" min="0" step="1" required></label>
+          <label>Base (optional) <select name="base"><option value="">None</option></select></label>
+          <button type="submit">Add pizza</button>
+        </form>
+
+        <form id="add-topping-form" class="card">
+          <h2>Add a topping</h2>
+          <p class="muted">A new topping class below an existing one.</p>
+          <label>Name <input name="name" required placeholder="BasilTopping" pattern="[A-Z][A-Za-z0-9_]*"></label>
+          <label>Parent class <select name="parent" required></select></label>
+          <label>Spiciness (optional) <select name="spiciness"><option value="">None</option></select></label>
+          <button type="submit">Add topping</button>
+        </form>
+
+        <form id="add-type-form" class="card">
+          <h2>Add a pizza type</h2>
+          <p class="muted">A new named pizza defined by its toppings.</p>
+          <label>Name <input name="name" required placeholder="CapresePizza" pattern="[A-Z][A-Za-z0-9_]*"></label>
+          <label>Description (optional) <input name="comment" placeholder="Mozzarella, tomato and basil"></label>
+          <fieldset>
+            <legend>Toppings</legend>
+            <div id="type-toppings" class="checklist"></div>
+          </fieldset>
+          <label class="checkbox"><input name="closed" type="checkbox" checked> Only these toppings (closure axiom)</label>
+          <button type="submit">Add pizza type</button>
+        </form>
+      </div>
+
+      <div id="add-result" class="card hidden">
+        <h2>Stored triples</h2>
+        <p id="add-message"></p>
+        <table id="add-statements"><thead><tr><th>Predicate</th><th>Object</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <!-- ============================ SPARQL ============================ -->
+    <section id="tab-sparql" class="tab">
+      <div class="card">
+        <p class="muted">Read-only SPARQL. The prefixes <code>pizza:</code>, <code>owl:</code>, <code>rdf:</code>,
+          <code>rdfs:</code> and <code>xsd:</code> are predefined.</p>
+        <div id="examples" class="chips"></div>
+        <textarea id="sparql-query" rows="10" spellcheck="false"></textarea>
+        <div class="actions"><button id="run-sparql">Run query</button></div>
+      </div>
+      <div class="card">
+        <div id="sparql-result" class="scroll"><p class="muted">Results appear here.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>

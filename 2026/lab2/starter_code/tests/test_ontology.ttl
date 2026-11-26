@@ -1,0 +1,146 @@
+# A small test ontology for the automated tests.
+#
+# It uses the class and property names of the Protégé pizza tutorial (Pizza,
+# NamedPizza, PizzaTopping, hasTopping, ...) but made-up pizzas, so the tests give
+# the same results for everyone, whatever ontology you built in Part 1.
+# The namespace is deliberately different from the one Protégé generates: your code
+# must not depend on a particular namespace.
+
+@prefix tp:   <http://example.org/lab2/test-pizza#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/lab2/test-pizza> a owl:Ontology ;
+    rdfs:comment "Test ontology for Lab 2, Part 2" .
+
+# --------------------------------------------------------------------------- #
+# Properties
+# --------------------------------------------------------------------------- #
+tp:hasIngredient a owl:ObjectProperty ; owl:inverseOf tp:isIngredientOf .
+tp:isIngredientOf a owl:ObjectProperty .
+tp:hasTopping a owl:ObjectProperty ;
+    rdfs:subPropertyOf tp:hasIngredient ;
+    rdfs:domain tp:Pizza ; rdfs:range tp:PizzaTopping .
+tp:hasBase a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf tp:hasIngredient ;
+    rdfs:domain tp:Pizza ; rdfs:range tp:PizzaBase .
+tp:hasSpiciness a owl:ObjectProperty ;
+    rdfs:domain tp:PizzaTopping ; rdfs:range tp:Spiciness .
+tp:isSpicierThan a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain tp:Spiciness ; rdfs:range tp:Spiciness .
+tp:hasCaloricContent a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tp:Pizza ; rdfs:range xsd:integer .
+
+# --------------------------------------------------------------------------- #
+# Spiciness
+# --------------------------------------------------------------------------- #
+tp:Spiciness a owl:Class ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( tp:Hot tp:Medium tp:Mild ) ] .
+tp:Hot a owl:NamedIndividual ; tp:isSpicierThan tp:Medium .
+tp:Medium a owl:NamedIndividual ; tp:isSpicierThan tp:Mild .
+tp:Mild a owl:NamedIndividual, tp:Spiciness .
+
+# --------------------------------------------------------------------------- #
+# Bases and toppings
+# --------------------------------------------------------------------------- #
+tp:PizzaBase a owl:Class .
+tp:DeepPanBase a owl:Class ; rdfs:subClassOf tp:PizzaBase .
+tp:ThinAndCrispyBase a owl:Class ; rdfs:subClassOf tp:PizzaBase .
+
+tp:PizzaTopping a owl:Class .
+tp:CheeseTopping a owl:Class ; rdfs:subClassOf tp:PizzaTopping .
+tp:VegetableTopping a owl:Class ; rdfs:subClassOf tp:PizzaTopping .
+tp:MeatTopping a owl:Class ; rdfs:subClassOf tp:PizzaTopping .
+tp:FruitTopping a owl:Class ; rdfs:subClassOf tp:PizzaTopping .
+
+tp:MozzarellaTopping a owl:Class ; rdfs:subClassOf tp:CheeseTopping .
+tp:GorgonzolaTopping a owl:Class ; rdfs:subClassOf tp:CheeseTopping .
+tp:TomatoTopping a owl:Class ; rdfs:subClassOf tp:VegetableTopping .
+tp:MushroomTopping a owl:Class ; rdfs:subClassOf tp:VegetableTopping .
+tp:BasilTopping a owl:Class ; rdfs:subClassOf tp:VegetableTopping .
+tp:OliveTopping a owl:Class ; rdfs:subClassOf tp:VegetableTopping .
+tp:PepperTopping a owl:Class ; rdfs:subClassOf tp:VegetableTopping .
+tp:JalapenoPepperTopping a owl:Class ;
+    rdfs:subClassOf tp:PepperTopping ,
+        [ a owl:Restriction ; owl:onProperty tp:hasSpiciness ; owl:hasValue tp:Hot ] .
+tp:SweetPepperTopping a owl:Class ;
+    rdfs:subClassOf tp:PepperTopping ,
+        [ a owl:Restriction ; owl:onProperty tp:hasSpiciness ; owl:hasValue tp:Mild ] .
+tp:SalamiTopping a owl:Class ; rdfs:subClassOf tp:MeatTopping .
+tp:HamTopping a owl:Class ; rdfs:subClassOf tp:MeatTopping .
+tp:PineappleTopping a owl:Class ; rdfs:subClassOf tp:FruitTopping .
+
+# --------------------------------------------------------------------------- #
+# Pizzas
+# --------------------------------------------------------------------------- #
+tp:Pizza a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ; owl:onProperty tp:hasBase ; owl:someValuesFrom tp:PizzaBase ] .
+tp:NamedPizza a owl:Class ; rdfs:subClassOf tp:Pizza .
+
+# Defined classes: these are not named pizza types.
+tp:VegetarianPizza a owl:Class ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( tp:Pizza
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ;
+          owl:allValuesFrom [ a owl:Class ; owl:unionOf ( tp:CheeseTopping tp:VegetableTopping ) ] ] ) ] .
+tp:SpicyPizza a owl:Class ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( tp:Pizza
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ;
+          owl:someValuesFrom [ a owl:Restriction ; owl:onProperty tp:hasSpiciness ; owl:hasValue tp:Hot ] ] ) ] .
+
+# Closed: mozzarella, tomato and basil only.
+tp:CapresePizza a owl:Class ;
+    rdfs:comment "Mozzarella, tomato and basil" ;
+    rdfs:subClassOf tp:NamedPizza ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MozzarellaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:TomatoTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:BasilTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ;
+          owl:allValuesFrom [ a owl:Class ;
+              owl:unionOf ( tp:MozzarellaTopping tp:TomatoTopping tp:BasilTopping ) ] ] .
+
+# Open: no closure axiom.
+tp:DiavolaPizza a owl:Class ;
+    rdfs:subClassOf tp:NamedPizza ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MozzarellaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:TomatoTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:SalamiTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:JalapenoPepperTopping ] .
+
+tp:BiancaPizza a owl:Class ;
+    rdfs:subClassOf tp:NamedPizza ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MozzarellaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:GorgonzolaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ;
+          owl:allValuesFrom [ a owl:Class ; owl:unionOf ( tp:MozzarellaTopping tp:GorgonzolaTopping ) ] ] .
+
+tp:TropicalPizza a owl:Class ;
+    rdfs:subClassOf tp:NamedPizza ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MozzarellaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:HamTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:PineappleTopping ] .
+
+tp:OrtolanaPizza a owl:Class ;
+    rdfs:subClassOf tp:NamedPizza ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MozzarellaTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:TomatoTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:MushroomTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ; owl:someValuesFrom tp:SweetPepperTopping ] ,
+        [ a owl:Restriction ; owl:onProperty tp:hasTopping ;
+          owl:allValuesFrom [ a owl:Class ;
+              owl:unionOf ( tp:MozzarellaTopping tp:TomatoTopping tp:MushroomTopping tp:SweetPepperTopping ) ] ] .
+
+# --------------------------------------------------------------------------- #
+# Pizza individuals
+# --------------------------------------------------------------------------- #
+tp:CapresePizza1 a owl:NamedIndividual, tp:CapresePizza ; tp:hasCaloricContent "260"^^xsd:integer .
+tp:CapresePizza2 a owl:NamedIndividual, tp:CapresePizza ; tp:hasCaloricContent "310"^^xsd:decimal .
+tp:DiavolaPizza1 a owl:NamedIndividual, tp:DiavolaPizza ; tp:hasCaloricContent "720"^^xsd:integer .
+tp:BiancaPizza1 a owl:NamedIndividual, tp:BiancaPizza ; tp:hasCaloricContent "400"^^xsd:integer .
+tp:TropicalPizza1 a owl:NamedIndividual, tp:TropicalPizza ; tp:hasCaloricContent "380"^^xsd:integer .
+tp:TropicalPizza2 a owl:NamedIndividual, tp:TropicalPizza .          # calories unknown
+tp:OrtolanaPizza1 a owl:NamedIndividual, tp:OrtolanaPizza ;
+    tp:hasCaloricContent "450"^^xsd:integer ;
+    tp:hasBase tp:OrtolanaPizza1Base .
+tp:OrtolanaPizza1Base a owl:NamedIndividual, tp:DeepPanBase .
